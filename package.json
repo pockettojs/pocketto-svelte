@@ -1,0 +1,36 @@
+{
+  "name": "pocketto-svelte",
+  "version": "1.0.0",
+  "description": "pocketto-svelte is a plugin that make pocketto real time feature to adapt as svelte stores",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pockettojs/pocketto-svelte"
+  },
+  "main": "dist/node/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "browser": "dist/browser/src/index.js",
+  "scripts": {
+    "compile:type": "tsc --project tsconfig-node.json --declaration --declarationDir dist --emitDeclarationOnly && tsc-alias -p tsconfig-types.json",
+    "compile:browser": "tsc --project tsconfig-browser.json && tsc-alias -p tsconfig-browser.json",
+    "compile:node": "tsc --project tsconfig-node.json && tsc-alias -p tsconfig.json",
+    "build": "npm run compile:type && npm run compile:browser && npm run compile:node && npm pack",
+    "lint": "eslint **/*.ts"
+  },
+  "keywords": [
+    "pocketto",
+    "svelte"
+  ],
+
+  "peerDependencies": {
+    "pocketto": ">=0.1.5",
+    "svelte": ">=3.0.0"
+  },
+  "author": "Kent Ng <kent.ng201@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.11.0",
+    "@typescript-eslint/parser": "^8.11.0",
+    "eslint": "^9.13.0",
+    "tsc-alias": "^1.8.10"
+  }
+}
